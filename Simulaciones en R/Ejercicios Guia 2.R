@@ -121,3 +121,14 @@ sample(1:4, 30, replace = TRUE, prob = litterpmf)
 
 LYNX <- sample(1:4, 10000, replace = TRUE, prob = litterpmf)          
 mean(LYNX > 5)
+
+probabilidadMenorIgual <- function(x,p,t) {
+  simulacionPMI <- sample(x,1000000000,replace=TRUE,prob=p)
+  mean(simulacionPMI<=t)
+}
+probabilidadMenorIgual(c(1,3,6,12),c(0.3,0.1,0.2,0.4),6)
+
+ 
+esperanza <- function(x,p) {  #Ej 6
+  sum(x*p)
+}
