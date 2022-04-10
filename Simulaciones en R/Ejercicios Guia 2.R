@@ -132,3 +132,8 @@ probabilidadMenorIgual(c(1,3,6,12),c(0.3,0.1,0.2,0.4),6)
 esperanza <- function(x,p) {  #Ej 6
   sum(x*p)
 }
+
+varianza <- function(x,p) { #Ej 7
+  esperanza(x^2,p)-esperanza(x,p)^2
+}
+=
