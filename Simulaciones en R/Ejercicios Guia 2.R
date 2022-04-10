@@ -107,3 +107,17 @@ ggplot(data, aes(x=x, y=y)) + #probabilidad puntual ejercicio 1
 
 valoresFuncAcum <-c(0,0.39,0.82,0.97,1) #Funcion Prob Acumulada ejercicio 1
 plot(stepfun(0:3, valoresFuncAcum), verticals=FALSE, ylab="F(x)",main = "Función de Distr. Acum",)
+
+replicate(5,{sample(c(1,3,6,12),prob=c(0.3,0.1,0.2,0.4))}) #5 repeticiones del ejercicio 2
+
+exp2 <-sample(c(1,3,6,12),100000, replace =TRUE, prob=c(0.3,0.1,0.2,0.4)) #Ej 2d
+mean(3<exp2 & exp2<=6) #Ej 2d
+mean(3<=exp2 & exp2<=6) #Ej 2d
+mean(exp2>=4) #Ej 2d
+mean(exp2>=6) #Ej 2d
+
+litterpmf <- c(0.18, 0.51, 0.27, 0.04)
+sample(1:4, 30, replace = TRUE, prob = litterpmf)
+
+LYNX <- sample(1:4, 10000, replace = TRUE, prob = litterpmf)          
+mean(LYNX > 5)
