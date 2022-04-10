@@ -1,5 +1,9 @@
+library(ggplot2)
+
 x <-c(1,2,3)
 sample(x,10,replace = TRUE)
+
+
 
 die1 <- sample(x = 1:6, size = 1000000, replace = TRUE)
 die2 <- sample(x = 1:6, size = 1000000, replace = TRUE)
@@ -94,3 +98,12 @@ mean(replicate(repeticiones, {
 })))
 
 graficoProbPuntual <- plot(x = 0:3, y=probPuntual, type = 'h', pch=1:25, cex=5)
+
+data <- data.frame(x = 0:3, y=probPuntual)
+
+ggplot(data, aes(x=x, y=y)) + #probabilidad puntual ejercicio 1
+  geom_point() + 
+  geom_segment( aes(x=x, xend=x, y=0, yend=y))
+
+valoresFuncAcum <-c(0,0.39,0.82,0.97,1) #Funcion Prob Acumulada ejercicio 1
+plot(stepfun(0:3, valoresFuncAcum), verticals=FALSE, ylab="F(x)",main = "Función de Distr. Acum",)
